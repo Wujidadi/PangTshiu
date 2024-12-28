@@ -1,0 +1,27 @@
+{
+    "name": "wujidadi/pangtshiu",
+    "description": "Custom PHP helper library, named in Taiwanese Hoklo (\"pang-tshiú\" means \"helper\")",
+    "type": "library",
+    "keywords": ["helper"],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Wujidadi\\Pangtshiu\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Wujidadi",
+            "email": "wujidadi@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "pestphp/pest": "^3.7",
+        "phpunit/php-code-coverage": "^11.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
