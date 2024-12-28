@@ -130,9 +130,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Project environment files
+# Project files
 /.env
 /.rc
+/.test
 
 # Dependencies
 /vendor

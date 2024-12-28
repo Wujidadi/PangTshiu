@@ -44,6 +44,34 @@ Encrypts the input string using a public key.
 
 Decrypts the input string using a private key.
 
+### Date
+
+Utility class for validating and parsing date-time strings.
+
+#### Date::ymdhis
+
+Validate a datetime string in 'Y-m-d H:i:s' format, including BCE years.
+
+#### Date::isLeapYear
+
+Determine if a year is a leap year.
+
+#### Date::isLegalDate
+
+Validate if a given date is legal.
+
+#### Date::isLegalTime
+
+Validate if a given time is legal.
+
+### Email
+
+Utility class handling email addresses.
+
+#### Email::match
+
+Validate the validity of an email address (as closely as possible to [RFC 5322](https://datatracker.ietf.org/doc/html/rfc5322) and [RFC 6531](https://datatracker.ietf.org/doc/html/rfc6531) standards).
+
 ### PrivateKey
 
 Utility class for handling key pairs of private and public keys.
@@ -51,7 +79,3 @@ Utility class for handling key pairs of private and public keys.
 #### PrivateKey::generate
 
 Generates a key pair of private and public keys.
-
-## About `pint.json`
-
-This library doesn't rely on Laravel. This file here is included only for documentation and tracking purposes.

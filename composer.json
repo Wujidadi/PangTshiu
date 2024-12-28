@@ -17,7 +17,8 @@
     ],
     "require-dev": {
         "pestphp/pest": "^3.7",
-        "phpunit/php-code-coverage": "^11.0"
+        "phpunit/php-code-coverage": "^11.0",
+        "laravel/pint": "^1.18"
     },
     "config": {
         "allow-plugins": {
