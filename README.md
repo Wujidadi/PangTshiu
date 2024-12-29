@@ -86,6 +86,16 @@ Convert Excel column letters to a number.
 
 Convert a number to Excel column letters.
 
+### Guid: generating GUIDs (Globally Unique Identifiers)
+
+#### Guid::create
+
+Generates a GUID.
+
+#### Guid::isLegal
+
+Checks if a given GUID is valid.
+
 ### PrivateKey: handling key pairs of private and public keys
 
 #### PrivateKey::generate
