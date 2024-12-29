@@ -96,6 +96,16 @@ Generates a GUID.
 
 Checks if a given GUID is valid.
 
+### Json: handling JSON data
+
+#### Json::unescape
+
+Encode a given data into JSON format with special characters and slashes unescaped.
+
+#### Json::prettyPrint
+
+Pretty print a given data into JSON format with special characters and slashes unescaped.
+
 ### PrivateKey: handling key pairs of private and public keys
 
 #### PrivateKey::generate
