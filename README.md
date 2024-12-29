@@ -111,3 +111,30 @@ Pretty print a given data into JSON format with special characters and slashes u
 #### PrivateKey::generate
 
 Generates a key pair of private and public keys.
+
+### TGuid: Utility Class for handling TGUID (Time-sequential GUID)
+
+#### TGuid::create
+
+Generate a Base62 TGUID with additional padding to meet 42 characters.  
+42, the Answer to the Ultimate Question of Life, The Universe, and Everything!
+
+#### TGuid::uuid
+
+Generate a UUID by combining uniqid and a standard GUID.
+
+#### TGuid::base62Guid
+
+Generate a GUID in Base62 encoding.
+
+#### TGuid::base62TGuid
+
+Generate a TGUID in Base62 encoding.
+
+#### TGuid::tGuidToTime
+
+Convert a Base62 TGUID to a UTC datetime.
+
+#### TGuid::timeToTGuid
+
+Convert a datetime string into a Base62 number string just like the first 10 characters of a TGUID.

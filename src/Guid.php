@@ -14,7 +14,7 @@ class Guid
      *
      * @param bool $trim whether to trim the curly braces from the GUID
      * @return string the generated GUID
-     * @throws \Random\RandomException
+     * @throws \Random\RandomException if an appropriate source of randomness cannot be found
      */
     public static function create(bool $trim = true): string
     {
