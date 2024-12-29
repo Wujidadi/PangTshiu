@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/.bootstrap';
+
+use Wujidadi\Pangtshiu\Format\Date;
+
+$data = Date::isLeapYear(2024);
+dd($data);

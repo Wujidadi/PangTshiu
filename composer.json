@@ -18,7 +18,8 @@
     "require-dev": {
         "pestphp/pest": "^3.7",
         "phpunit/php-code-coverage": "^11.0",
-        "laravel/pint": "^1.18"
+        "laravel/pint": "^1.18",
+        "symfony/var-dumper": "^7.2"
     },
     "config": {
         "allow-plugins": {

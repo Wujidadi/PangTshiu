@@ -1,0 +1,89 @@
+#!/bin/bash
+
+## Variables to pass to internal commands and functions
+PROJECT_ROOT=$(pwd)
+PHP=$(which php)
+
+## Quickly return to the project root directory after an accidental `cd`
+alias cvd='cd $PROJECT_ROOT'
+
+## Coding Standard
+alias pints='pint > /dev/null 2>&1'
+
+## PHP testing
+LOCAL_PEST="$PROJECT_ROOT/vendor/bin/pest"
+alias dpt='XDEBUG_MODE=off $LOCAL_PEST --color=always'
+alias dptc='XDEBUG_MODE=coverage $LOCAL_PEST --color=always --coverage'
+
+## Specific PHP test
+function dpet() {
+  local yellow="\033[38;2;255;216;102m"
+  local green="\033[38;2;169;220;118m"
+  local reset="\033[0m"
+  if [ $# -lt 1 ]; then
+    # Run all tests
+    dpt
+  elif [ $# -eq 1 ]; then
+    # Test a specific class
+    printf "$yellow%s$reset\n" "$1"
+    dpt "$1"
+  else
+    # Test a specific description
+    local file="$1"
+    if [[ "$file" != *.php ]]; then
+      file="${file//\\//}"
+      file="${file/Tests/tests}.php"
+      printf "$yellow%s$reset $green'%s'$reset\n" "$file" "$2"
+    else
+      printf "$yellow%s$reset $green'%s'$reset\n" "$file" "$2"
+    fi
+    dpt $file --filter $2
+  fi
+}
+
+## Specific PHP test with coverage
+function dpetc() {
+  local yellow="\033[38;2;255;216;102m"
+  local green="\033[38;2;169;220;118m"
+  local reset="\033[0m"
+  if [ $# -lt 1 ]; then
+    # Run all tests
+    dptc
+  elif [ $# -eq 1 ]; then
+    # Test a specific class
+    printf "$yellow%s$reset\n" "$1"
+    dptc "$1"
+  else
+    # Test a specific description
+    local file="$1"
+    if [[ "$file" != *.php ]]; then
+      file="${file//\\//}"
+      file="${file/Tests/tests}.php"
+      printf "$yellow%s$reset $green'%s'$reset\n" "$file" "$2"
+    else
+      printf "$yellow%s$reset $green'%s'$reset\n" "$file" "$2"
+    fi
+    dptc $file --filter $2
+  fi
+}
+
+## Command-line testing
+alias devt='$PROJECT_ROOT/.test'
+
+## Remove the above definitions
+function unsetrc() {
+  unset PROJECT_ROOT
+  unset PHP
+
+  unalias cvd
+
+  unset LOCAL_PEST
+  unalias dpt
+  unalias dptc
+
+  unset -f dpet
+
+  unset devt
+
+  unset -f unsetrc
+}

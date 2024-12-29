@@ -1,6 +1,20 @@
 # "Pang-tshiú" Helper Library
 
-A simple library of set of PHP helper methods, constants and classes.
+A simple library containing a set of PHP helper methods, constants, and classes.
+
+## Setup and Command-Line Testing for Local Development
+
+```shell
+composer i
+cp .rc.example .rc
+cp .test.example .test
+source .rc
+```
+
+Now, you can type devt in the terminal to run a simple local command-line test with Symfony-style output:
+```shell
+true # the result of Date::isLeapYear(2024);
+```
 
 ## The "Pang-tshiú"s
 
