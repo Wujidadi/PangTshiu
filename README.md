@@ -18,9 +18,7 @@ true # the result of Date::isLeapYear(2024);
 
 ## The "Pang-tshiú"s
 
-### Base62
-
-Utility class handling Base62 numbers.
+### Base62: handling Base62 numbers
 
 #### Base62::string
 
@@ -34,9 +32,7 @@ Converts a decimal number to a Base62 number string.
 
 Converts a Base62 number string to a decimal number string.
 
-### Base64
-
-Utility class built on PHP's base64 functions, adding features and encapsulation.
+### Base64: built on PHP's base64 functions, adding features and encapsulation
 
 #### Base64::urlSafeEncode
 
@@ -46,9 +42,7 @@ Encodes the input string to a URL-safe Base64 format.
 
 Decodes a URL-safe Base64 string back to its original value.
 
-### Cipher
-
-Utility class that standardizes OpenSSL functions for consistency.
+### Cipher: standardizes OpenSSL functions for consistency
 
 #### Cipher::publicEncrypt
 
@@ -58,9 +52,7 @@ Encrypts the input string using a public key.
 
 Decrypts the input string using a private key.
 
-### Date
-
-Utility class for validating and parsing date-time strings.
+### Date: validating and parsing date-time strings
 
 #### Date::ymdhis
 
@@ -78,17 +70,23 @@ Validate if a given date is legal.
 
 Validate if a given time is legal.
 
-### Email
-
-Utility class handling email addresses.
+### Email: handling email addresses
 
 #### Email::match
 
 Validate the validity of an email address (as closely as possible to [RFC 5322](https://datatracker.ietf.org/doc/html/rfc5322) and [RFC 6531](https://datatracker.ietf.org/doc/html/rfc6531) standards).
 
-### PrivateKey
+### Excel: handling Excel-related conversions
 
-Utility class for handling key pairs of private and public keys.
+#### Excel::columnToNumber
+
+Convert Excel column letters to a number.
+
+#### Excel::numberToColumn
+
+Convert a number to Excel column letters.
+
+### PrivateKey: handling key pairs of private and public keys
 
 #### PrivateKey::generate
 
