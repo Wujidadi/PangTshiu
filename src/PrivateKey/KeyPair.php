@@ -9,11 +9,11 @@ class KeyPair
 {
     public function __construct(
         /**
-         * @param string $private Private key
+         * @param string $private private key
          */
         public string $private,
         /**
-         * @param string $private Public key
+         * @param string $private public key
          */
         public string $public
     ) {}

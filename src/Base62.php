@@ -32,7 +32,11 @@ class Base62
     ];
 
     /**
-     * Generates a random Base62 string with variable length controlled by the parameter.
+     * Generates a random Base62 string with variable length.
+     *
+     * @param int $length the desired length of the generated Base62 string. Defaults to 8
+     * @return string the generated Base62 string
+     * @throws \Random\RandomException
      */
     public static function string(int $length = 8): string
     {
@@ -49,8 +53,11 @@ class Base62
 
     /**
      * Converts a decimal number to a Base62 number string.
+     *
+     * @param int|string $num the decimal number to convert. Can be a large number as a string
+     * @return string the resulting Base62 string
      */
-    public static function decToBase62(float|int|string $num): string
+    public static function decToBase62(int|string $num): string
     {
         $to = count(self::DICT);
         $result = [];
@@ -64,7 +71,12 @@ class Base62
     }
 
     /**
+    /**
      * Converts a Base62 number string to a decimal number string.
+     *
+     * @param string $num the Base62 string to convert
+     * @return string the resulting decimal number as a string
+     * @throws InvalidArgumentException if the input contains invalid Base62 characters
      */
     public static function base62ToDec(string $num): string
     {

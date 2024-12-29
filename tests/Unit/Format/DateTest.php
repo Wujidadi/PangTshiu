@@ -40,8 +40,7 @@ it('is leap year', function (int $year, bool $isLeapYeay) {
 
 it('is legal day', function (int $year, int $month, int $day, bool $isLegal) {
     expect(Date::isLegalDate($year, $month, $day))->toBe($isLegal);
-})
-->with([
+})->with([
     [2000, 2, 29, true],
     [2000, 4, 31, false],
     [2020, 2, 30, false],

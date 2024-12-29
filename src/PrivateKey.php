@@ -11,6 +11,9 @@ class PrivateKey
 {
     /**
      * Generates a key pair of private and public keys.
+     *
+     * @param ?array $options additional options for generating the key pair. As same as in `openssl_pkey_new`
+     * @return KeyPair a KeyPair object containing the generated private and public keys
      */
     public static function generate(?array $options = null): KeyPair
     {

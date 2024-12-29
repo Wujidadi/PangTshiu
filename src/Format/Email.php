@@ -14,6 +14,9 @@ class Email
 
     /**
      * Validate the validity of an email address.
+     *
+     * @param string $email the email address to validate
+     * @return bool returns true if the email address is valid, false otherwise
      */
     public static function match(string $email): bool
     {

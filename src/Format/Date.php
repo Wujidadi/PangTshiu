@@ -7,15 +7,21 @@ namespace Wujidadi\Pangtshiu\Format;
  */
 class Date
 {
+    /**
+     * Numbers of months with 31 days.
+     */
     public const LONG_MONTHS = [1, 3, 5, 7, 8, 10, 12];
 
+    /**
+     * Numbers of months with 30 days.
+     */
     public const SHORT_MONTHS = [4, 6, 9, 11];
 
     /**
      * Validate a datetime string in 'Y-m-d H:i:s' format, including BCE years.
      *
-     * @param string $dateTime The datetime string to validate.
-     * @return bool True if the datetime is valid, false otherwise.
+     * @param string $dateTime the datetime string to validate
+     * @return bool true if the datetime is valid, false otherwise
      */
     public static function ymdhis(string $dateTime): bool
     {
@@ -41,8 +47,8 @@ class Date
     /**
      * Check if the datetime string matches the required 'Y-m-d H:i:s' format.
      *
-     * @param string $dateTime The datetime string to validate.
-     * @return bool True if the format is valid, false otherwise.
+     * @param string $dateTime the datetime string to validate
+     * @return bool true if the format is valid, false otherwise
      */
     private static function isValidFormat(string $dateTime): bool
     {
@@ -53,8 +59,8 @@ class Date
     /**
      * Parse a date string in 'Y-m-d' pattern into an array containing year, month, and day as integers.
      *
-     * @param string $date The date string to parse.
-     * @return int[] An array containing year, month, and day as integers.
+     * @param string $date the date string to parse
+     * @return int[] an array containing year, month, and day as integers
      */
     private static function parseDate(string $date): array
     {
@@ -69,8 +75,8 @@ class Date
     /**
      * Parse a time string in 'H:i:s' pattern into an array containing hour, minute, and second as integers.
      *
-     * @param string $time The time string to parse.
-     * @return int[] An array containing hour, minute, and second as integers.
+     * @param string $time the time string to parse
+     * @return int[] an array containing hour, minute, and second as integers
      */
     private static function parseTime(string $time): array
     {
@@ -85,8 +91,8 @@ class Date
     /**
      * Determine if a year is a leap year.
      *
-     * @param int $year The year to check.
-     * @return bool True if it is a leap year, false otherwise.
+     * @param int $year the year to check
+     * @return bool true if it is a leap year, false otherwise
      */
     public static function isLeapYear(int $year): bool
     {
@@ -115,10 +121,10 @@ class Date
     /**
      * Validate if a given date is legal.
      *
-     * @param int $year The year to validate.
-     * @param int $month The month to validate.
-     * @param int $day The day to validate.
-     * @return bool True if the date is valid, false otherwise.
+     * @param int $year the year to validate
+     * @param int $month the month to validate
+     * @param int $day the day to validate
+     * @return bool true if the date is valid, false otherwise
      */
     public static function isLegalDate(int $year, int $month, int $day): bool
     {
@@ -141,8 +147,8 @@ class Date
     /**
      * Check if the month is invalid.
      *
-     * @param int $month The month to validate.
-     * @return bool True if the month is invalid, false otherwise.
+     * @param int $month the month to validate
+     * @return bool true if the month is invalid, false otherwise
      */
     private static function isInvalidMonth(int $month): bool
     {
@@ -152,9 +158,9 @@ class Date
     /**
      * Check if the day exceeds the maximum days allowed for the given month.
      *
-     * @param int $day The day to validate.
-     * @param int $month The month to validate.
-     * @return bool True if the day is invalid, false otherwise.
+     * @param int $day the day to validate
+     * @param int $month the month to validate
+     * @return bool true if the day is invalid, false otherwise
      */
     private static function isInvalidDayInMonth(int $day, int $month): bool
     {
@@ -170,10 +176,10 @@ class Date
     /**
      * Check if the day is invalid for February considering leap years.
      *
-     * @param int $day The day to validate.
-     * @param int $month The month to validate.
-     * @param bool $isLeapYear Whether the year is a leap year.
-     * @return bool True if the day is invalid, false otherwise.
+     * @param int $day the day to validate
+     * @param int $month the month to validate
+     * @param bool $isLeapYear whether the year is a leap year
+     * @return bool true if the day is invalid, false otherwise
      */
     private static function isInvalidLeapDate(int $day, int $month, bool $isLeapYear): bool
     {
@@ -189,10 +195,10 @@ class Date
     /**
      * Validate if a given time is legal.
      *
-     * @param int $hour The hour to validate.
-     * @param int $minute The minute to validate.
-     * @param int $second The second to validate.
-     * @return bool True if the time is valid, false otherwise.
+     * @param int $hour the hour to validate
+     * @param int $minute the minute to validate
+     * @param int $second the second to validate
+     * @return bool true if the time is valid, false otherwise
      */
     public static function isLegalTime(int $hour, int $minute, int $second): bool
     {
