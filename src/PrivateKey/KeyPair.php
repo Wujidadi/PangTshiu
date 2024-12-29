@@ -13,7 +13,7 @@ class KeyPair
          */
         public string $private,
         /**
-         * @param string $private public key
+         * @param string $public public key
          */
         public string $public
     ) {}
