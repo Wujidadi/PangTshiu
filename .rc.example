@@ -20,24 +20,34 @@ function dpet() {
   local yellow="\033[38;2;255;216;102m"
   local green="\033[38;2;169;220;118m"
   local reset="\033[0m"
-  if [ $# -lt 1 ]; then
-    # Run all tests
-    dpt
-  elif [ $# -eq 1 ]; then
-    # Test a specific class
-    printf "$yellow%s$reset\n" "$1"
-    dpt "$1"
-  else
-    # Test a specific description
+
+  convert_path() {
     local file="$1"
     if [[ "$file" != *.php ]]; then
       file="${file//\\//}"
       file="${file/Tests/tests}.php"
-      printf "$yellow%s$reset $green'%s'$reset\n" "$file" "$2"
-    else
-      printf "$yellow%s$reset $green'%s'$reset\n" "$file" "$2"
     fi
-    dpt $file --filter $2
+    echo "$file"
+  }
+
+  if [ $# -lt 1 ]; then
+    # Run all tests
+    dpt
+    return
+  fi
+
+  local file
+  file=$(convert_path "$1")
+
+  if [ $# -eq 1 ]; then
+    # Test a specific class
+    printf "$yellow%s$reset\n" "$file"
+    dpt "$file"
+  else
+    # Test a specific description
+    local description="$2"
+    printf "$yellow%s$reset $green'%s'$reset\n" "$file" "$description"
+    dpt "$file" --filter "$description"
   fi
 }
 
@@ -46,29 +56,42 @@ function dpetc() {
   local yellow="\033[38;2;255;216;102m"
   local green="\033[38;2;169;220;118m"
   local reset="\033[0m"
-  if [ $# -lt 1 ]; then
-    # Run all tests
-    dptc
-  elif [ $# -eq 1 ]; then
-    # Test a specific class
-    printf "$yellow%s$reset\n" "$1"
-    dptc "$1"
-  else
-    # Test a specific description
+
+  convert_path() {
     local file="$1"
     if [[ "$file" != *.php ]]; then
       file="${file//\\//}"
       file="${file/Tests/tests}.php"
-      printf "$yellow%s$reset $green'%s'$reset\n" "$file" "$2"
-    else
-      printf "$yellow%s$reset $green'%s'$reset\n" "$file" "$2"
     fi
-    dptc $file --filter $2
+    echo "$file"
+  }
+
+  if [ $# -lt 1 ]; then
+    # Run all tests
+    dptc
+    return
+  fi
+
+  local file
+  file=$(convert_path "$1")
+
+  if [ $# -eq 1 ]; then
+    # Test a specific class
+    printf "$yellow%s$reset\n" "$file"
+    dptc "$file"
+  else
+    # Test a specific description
+    local description="$2"
+    printf "$yellow%s$reset $green'%s'$reset\n" "$file" "$description"
+    dptc "$file" --filter "$description"
   fi
 }
 
 ## Command-line testing
 alias devt='$PROJECT_ROOT/.test'
+
+## Git
+alias gpo='git push origin'
 
 ## Remove the above definitions
 function unsetrc() {
@@ -84,6 +107,8 @@ function unsetrc() {
   unset -f dpet
 
   unset devt
+
+  unset gpo
 
   unset -f unsetrc
 }
